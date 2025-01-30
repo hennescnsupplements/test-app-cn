@@ -1,13 +1,17 @@
 import streamlit as st
 
-st.title("🔗 Open een link")
+st.title("🔗 Open een link direct")
 
-# Inputveld om een link in te voeren
+# Inputveld voor de URL
 url = st.text_input("Voer een URL in (bijv. https://www.google.com)")
 
-# Knop om de link te openen
+# JavaScript om de link in een nieuw tabblad te openen
+def open_link(new_url):
+    st.markdown(f'<script>window.open("{new_url}", "_blank");</script>', unsafe_allow_html=True)
+
+# Knop om de link direct te openen
 if st.button("Open Link"):
-    if url:  # Check of er een link is ingevuld
-        st.markdown(f'[Klik hier om de link te openen]({url})', unsafe_allow_html=True)
+    if url:
+        open_link(url)  # Direct openen in een nieuw tabblad
     else:
         st.warning("⚠️ Voer eerst een geldige URL in!")
