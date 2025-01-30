@@ -1,9 +1,10 @@
 import streamlit as st
-import webbrowser
 
-st.title("🔗 Open YouTube Direct")
+st.title("🔗 Open YouTube met een knop")
 
-# Knop om direct naar YouTube te gaan
+# Knop om de link te openen
 if st.button("Ga naar YouTube"):
-    js = "window.open('https://www.youtube.com')"  # JavaScript om een nieuwe tab te openen
-    st.markdown(f'<script>{js}</script>', unsafe_allow_html=True)
+    st.markdown(
+        '<meta http-equiv="refresh" content="0; url=https://www.youtube.com">',
+        unsafe_allow_html=True
+    )
