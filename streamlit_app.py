@@ -1,15 +1,9 @@
 import streamlit as st
 import webbrowser
 
-st.title("🔗 Open een link direct")
+st.title("🔗 Open YouTube Direct")
 
-# Inputveld voor de URL
-url = st.text_input("Voer een URL in (bijv. https://www.google.com)")
-
-# Knop om de link te openen
-if st.button("Open Link"):
-    if url:
-        js = f"window.open('{url}')"  # JavaScript om de link te openen
-        st.markdown(f'<script>{js}</script>', unsafe_allow_html=True)
-    else:
-        st.warning("⚠️ Voer eerst een geldige URL in!")
+# Knop om direct naar YouTube te gaan
+if st.button("Ga naar YouTube"):
+    js = "window.open('https://www.youtube.com')"  # JavaScript om een nieuwe tab te openen
+    st.markdown(f'<script>{js}</script>', unsafe_allow_html=True)
